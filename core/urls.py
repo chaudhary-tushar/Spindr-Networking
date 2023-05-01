@@ -14,5 +14,5 @@ urlpatterns = [
     path('logout/',views.logout, name='logout'),
     path('delete/',views.delete, name='delete'),
     path('search/',views.search, name='search'),
-    path('comment/',views.comment, name='comment'),
+    # path('comment/',views.comment, name='comment'),
 ]
