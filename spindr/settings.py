@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-)7nch1#a-prbl%b0-01-!pn$$@olfcrxukni0+jrn8^%)@&2#g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app']
 
 
 # Application definition
@@ -77,8 +78,13 @@ WSGI_APPLICATION = 'spindr.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'spindraws',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost', 
+        'PORT': '5432'
+
     }
 }
 
