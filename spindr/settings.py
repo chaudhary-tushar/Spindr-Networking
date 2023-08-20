@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import boto3
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -80,9 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'spindraws',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost', 
+        'USER': 'romeo7',
+        'PASSWORD': 'goldroger3',
+        'HOST': '', 
         'PORT': '5432'
 
     }
@@ -128,10 +130,6 @@ USE_TZ = True
 # STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 
 #### STATIC FILE SETTINGS FOR S3 BUCKET ####
-AWS_STATIC_BUCKET_NAME = 'your-s3-static-bucket-name'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_URL = f'https://{AWS_STATIC_BUCKET_NAME}.s3.amazonaws.com/static/'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -142,9 +140,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 #### MEDIA SETTINGS FOR ACCESSING S3 BUCKET ####
-AWS_STORAGE_BUCKET_NAME = 'your-s3-bucket-name'
-AWS_ACCESS_KEY_ID = 'your-aws-access-key-id'
-AWS_SECRET_ACCESS_KEY = 'your-aws-secret-access-key'
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+AWS_STORAGE_BUCKET_NAME = 'spindrbucket'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_MEDIA_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media'
+
+MEDIA_URL = f'https://{AWS_MEDIA_CUSTOM_DOMAIN}/'
+# # #### STATIC FILE SETTINGS FOR S3 BUCKET ####
+AWS_STATIC_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/staticfiles'
+STATIC_URL = f'https://{AWS_STATIC_CUSTOM_DOMAIN}/'
