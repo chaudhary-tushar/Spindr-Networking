@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import boto3
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +27,6 @@ SECRET_KEY = 'django-insecure-)7nch1#a-prbl%b0-01-!pn$$@olfcrxukni0+jrn8^%)@&2#g
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app']
 
 
 # Application definition
@@ -84,7 +82,7 @@ DATABASES = {
         'NAME': 'spindrend',
         'USER': 'romeo7',
         'PASSWORD': 'goldroger3',
-        'HOST': 'spindrbase.cb2ezp033v93.us-east-1.rds.amazonaws.com', 
+        'HOST': 'spindrbase.cb2ezp033v93.us-east-1.rds.amazonaws.com',
         'PORT': '5432'
 
     }
@@ -133,13 +131,8 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-
 #### MEDIA SETTINGS FOR ACCESSING S3 BUCKET ####
 AWS_STORAGE_BUCKET_NAME = 'spindrbucket'
-AWS_ACCESS_KEY_ID = ''
-AWS_SECRET_ACCESS_KEY = ''
 AWS_MEDIA_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media'
 
 MEDIA_URL = f'https://{AWS_MEDIA_CUSTOM_DOMAIN}/'
