@@ -131,11 +131,10 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#### MEDIA SETTINGS FOR ACCESSING S3 BUCKET ####
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-AWS_MEDIA_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media'
+#### MEDIA SETTINGS  ####
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-MEDIA_URL = f'https://{AWS_MEDIA_CUSTOM_DOMAIN}/'
-# # #### STATIC FILE SETTINGS FOR S3 BUCKET ####
-AWS_STATIC_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/staticfiles'
-STATIC_URL = f'https://{AWS_STATIC_CUSTOM_DOMAIN}/'
+# Static settings
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
