@@ -1,7 +1,7 @@
 # Spindr-Networking
 
 The Social Media Site is a web application built using Django, a Python web framework. It allows users to connect, share updates, and interact with each other through various social media features.
-![Static Badge](https://img.shields.io/badge/:badgeContent)(http://54.234.107.207/signin/?next=/))
+[![Static Badge](https://img.shields.io/badge/:badgeContent)](http://54.234.107.207/signin/?next=/))
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
 
 
