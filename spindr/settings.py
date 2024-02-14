@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)7nch1#a-prbl%b0-01-!pn$$@olfcrxukni0+jrn8^%)@&2#g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
 
 # Application definition
@@ -78,11 +79,10 @@ WSGI_APPLICATION = 'spindr.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'spindr',       
-        'USER': 'root',      
-        'PASSWORD': 'root',  
-        'HOST': 'localhost',                
-        'PORT': '3306', 
+        'NAME': config('DB_NAME'),       
+        'USER': config('DB_USER'),      
+        'PASSWORD': config('DB_PASSWORD'),  
+        'HOST': config('DB_HOST'),                 
     }
 }
 
