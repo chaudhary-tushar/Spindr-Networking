@@ -149,6 +149,10 @@ PWA_APP_ICONS = [
     {
         'src': '/static/images/my_app_icon.png',
         'sizes': '160x160'
+    },
+    {
+        'src': '/static/images/my_app_icon512.png',
+        'sizes': '512x512'
     }
 ]
 PWA_APP_ICONS_APPLE = [
